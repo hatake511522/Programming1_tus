@@ -1,0 +1,21 @@
+#include<stdio.h>
+#include<stdlib.h>//rand関数を使うために必要
+int main(void){
+    int i;
+    unsigned int seed;//乱数の種
+    int n; //生成する乱数の個数
+
+    printf("乱数の種を入力してください。\n");
+    scanf("%u",&seed);
+
+    srand(seed);//乱数の初期化、rand関数を使うときは必ず任意の数で初期化する。
+
+    printf("rand関数は0~%dの範囲の乱数を出力します。\n\n",RAND_MAX);
+    printf("乱数を何個生成しますか？\n");
+    scanf("%d",&n);
+
+    for(i=0; i<n; i++){
+	printf("%d\n",rand());
+    }
+    return 0;
+}

@@ -1,0 +1,31 @@
+EXE = hello.main
+SRCS1 = print_hello.c
+SRCS2 = hello_main.c
+OBJS1 = print_hello.o
+OBJS2 = hello_main.o
+INCLUDES = print_hello.h
+CC = clang
+
+$(EXE):$(OBJS1) $(OBJS2)
+	$(CC) -o $(EXE) $(OBJS1) $(OBJS2)
+
+$(OBJS1):$(SRCS1)
+	$(CC) -c $(SRCS1)
+
+$(OBJS2):$(SRCS2) $(INCLUDES)
+	$(CC) -c $(SRCS2)
+
+
+#
+	hello_main:hello_main.o print_hello.o
+				clang -o hello_main hello_main.o print_hello.o
+
+	print_hello.o:print_hello.c
+		clang -c print_hello.c
+
+	hello_main.o:hello_main.c print_hello.h
+				  clang -c hello_main.c
+
+
+	clean: rm -r hello_main.o print_hello.o
+#

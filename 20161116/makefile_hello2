@@ -1,0 +1,18 @@
+#makefile
+EXE = hello.main
+SRCS = print_hello.c hello_main.c
+INCLUDES = print_hello.h
+CC = clang
+OBJS = $(SRCS: .c = .o)
+.SUFFIXES: .c .p
+
+$(EXE):$(OBJS)
+	$(CC) -o $@ $^
+
+$(OBJS):$(SRCS)
+	$(CC) -c $<
+
+$(OBJS):$(SRCS) $(INCLUDES)
+	$(CC) -c $<
+
+hello_main.o : print_hello.h

@@ -1,0 +1,9 @@
+#makefile
+EXE = hello_main
+SRCS = print_hello.c hello_main.c
+CC = clang
+OBJS = $(SRCS: .c = .o)
+
+$(EXE):$(OBJS)
+
+hello_main.o : print_hello.h

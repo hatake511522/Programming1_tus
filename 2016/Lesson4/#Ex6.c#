@@ -1,0 +1,13 @@
+#include<stdio.h>
+int main(void){
+
+    double num1,num2;
+
+    printf("身長[cm]と体重[kg]を入力してください。\n");
+    scanf(" %1lf",&num1);
+    scanf(" %2lf",&num2);
+
+    printf("身長は%lf[m]、体重は%lf[kg]、BMIは%lfです。\n",num1/100,num2,num2/((num1/100)*(num1/100)));
+
+    return 0;
+}

@@ -1,0 +1,11 @@
+# makefile
+
+print_goodbye.o:goodbye.c
+	clang -c goodbye.c
+
+hello_main.o:hello_main.c print_hello.h
+			  clang -c hello_main.c
+
+hello_main:hello_main.o print_goodbye.o
+			clang -o hello_main hello_main.o print_goodbye.o
+
